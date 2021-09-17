@@ -1,23 +1,22 @@
 import React from 'react';
 
-import { StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 
 const ProfilePic = (props) => {
 
     return (
-        <TouchableOpacity style={styles.container}>
-            <Image style={styles.image} source={props.source} resizeMode='cover'></Image>
-        </TouchableOpacity>);
+        <View style={{ alignItems: 'center' }}>
+            <TouchableOpacity>
+                <Image style={styles.image} source={props.source} resizeMode='cover'></Image>
+            </TouchableOpacity>
+        </View>);
 
 };
 
 
 const styles = StyleSheet.create({
-    container:
-    {
-        alignItems:'center',
-    },
+    
     image:
     {
         margin:20,

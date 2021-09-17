@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, StyleSheet, ScrollView, I18nManager, Button, FlatList, TouchableNativeFeedback,TouchableOpacity,Platform, Dimensions } from 'react-native';
+import { View, StyleSheet, ScrollView, I18nManager, Button, FlatList, TouchableNativeFeedback, TouchableOpacity, Platform, Dimensions } from 'react-native';
 import { useSelector } from 'react-redux';
 import DefaultText from '../components/DefaultText';
 import FrinedItem from '../components/User/FrinedItem';
@@ -20,7 +20,7 @@ const UserProfileScreen = (props) => {
     const user = USERS.find((elem) => elem.id === userID).userDetails;
 
     const isListLongEnough = user.friends.length * Sizes.friendPicBig < Dimensions.get('window').width;
-    
+
     const renderFriends = (itemData) => {
         const friend = USERS.find(elem => elem.id === itemData.item.id)
         return (
@@ -30,7 +30,9 @@ const UserProfileScreen = (props) => {
 
     return (
         <ScrollView style={styles.screen}>
+
             <ProfilePic source={{ uri: user.picture }} />
+
             <View style={styles.userNameContainer}>
                 <DefaultText style={styles.userName}>{user.name} {user.lastName}</DefaultText>
             </View>
@@ -45,11 +47,11 @@ const UserProfileScreen = (props) => {
                         data={user.friends}
                         renderItem={renderFriends}
                     />
-                    {!isListLongEnough?<View style={styles.moreFriendsBtn}>
+                    {!isListLongEnough ? <View style={styles.moreFriendsBtn}>
                         <MyFeedbackBtn >
                             <Entypo name="triangle-right" size={24} color="black" />
                         </MyFeedbackBtn>
-                    </View>:null}
+                    </View> : null}
                 </View>
             </View>
             <View style={styles.btnGroup}>
